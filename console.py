@@ -13,6 +13,8 @@ from models.amenity import Amenity
 from models.review import Review
 from models.place import Place
 from models import storage
+import re
+import uuid
 
 
 class HBNBCommand(cmd.Cmd):
@@ -73,6 +75,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) < 2:
             print("** instance id missing **")
             return
+        print(f'{args[0]}.{args[1]}')
         if f'{args[0]}.{args[1]}' not in storage.all():
             print("** no instance found **")
             return
